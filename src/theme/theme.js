@@ -1,5 +1,11 @@
 // Define our `fg` and `bg` on the theme
 export default {
-	fg: "palevioletred",
-	bg: "white",
+	light: {
+		fg: "palevioletred",
+		bg: "white",
+	},
+	dark: {
+		fg: "white",
+		bg: "palevioletred",
+	},
 };

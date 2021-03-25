@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
+	${({ theme }) => {
+		console.log(theme);
+	}}
 	width: 100%;
 	height: auto;
 `;
