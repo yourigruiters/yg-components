@@ -7,17 +7,20 @@ const Container = styled.div`
 	height: auto;
 `;
 
+const StyledButton = styled.button``;
+
 const Button = ({ text, title }) => {
 	return (
 		<Container>
-			<button title={title ? title : text}>{text}</button>
+			<StyledButton title={title ? title : text}>{text}</StyledButton>
 		</Container>
 	);
 };
 
 Button.propTypes = {
 	text: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
+	title: PropTypes.string,
+	onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
