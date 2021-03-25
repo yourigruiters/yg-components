@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
 
 const Container = styled.div`
 	width: 100%;
 	height: auto;
 `;
 
-const Popover = ({ text }) => {
+type Props = {
+	text: string;
+};
+
+const Popover: React.FC<Props> = ({ text }) => {
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -22,11 +25,5 @@ const Popover = ({ text }) => {
 		</Container>
 	);
 };
-
-Popover.propTypes = {
-	text: PropTypes.string.isRequired,
-};
-
-Popover.defaultProps = {};
 
 export default Popover;

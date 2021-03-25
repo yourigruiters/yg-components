@@ -1,7 +1,9 @@
 const path = require("path");
+const propsParser = require("react-docgen-typescript");
 
 module.exports = {
 	webpackConfig: {
+		entry: "./src/index.ts",
 		module: {
 			rules: [
 				{
@@ -9,9 +11,22 @@ module.exports = {
 					exclude: /node_modules/,
 					loader: "babel-loader",
 				},
+				{
+					test: /\.tsx?$/,
+					exclude: /node_modules/,
+					use: "ts-loader",
+				},
 			],
 		},
+		resolve: {
+			extensions: [".tsx", ".ts", ".js"],
+		},
+		output: {
+			filename: "bundle.js",
+			path: path.resolve(__dirname, "dist"),
+		},
 	},
+	propsParser: propsParser.parse,
 	sections: [
 		{
 			name: "Introduction",
@@ -30,7 +45,7 @@ module.exports = {
 		{
 			name: "UI Components",
 			content: "docs/ui.md",
-			components: "src/components/*/*.jsx",
+			components: "src/components/*/*.tsx",
 			exampleMode: "expand",
 			usageMode: "expand",
 		},

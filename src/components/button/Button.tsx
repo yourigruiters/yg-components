@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
 
 const Container = styled.div`
 	width: 100%;
@@ -9,22 +8,17 @@ const Container = styled.div`
 
 const StyledButton = styled.button``;
 
-const Button = ({ text, title }) => {
+type Props = {
+	text: string;
+	title?: string;
+};
+
+const Button: React.FC<Props> = ({ text, title = "" }) => {
 	return (
 		<Container>
 			<StyledButton title={title ? title : text}>{text}</StyledButton>
 		</Container>
 	);
-};
-
-Button.propTypes = {
-	text: PropTypes.string.isRequired,
-	title: PropTypes.string,
-	onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-	title: "",
 };
 
 export default Button;
