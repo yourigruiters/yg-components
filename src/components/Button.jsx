@@ -1,16 +1,27 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
-	width: 100px;
-	height: 100px;
-	background-color: red;
+	width: 100%;
+	height: auto;
 `;
 
-export default function Button({ text }) {
+const Button = ({ text, title }) => {
 	return (
 		<Container>
-			<button>{text}</button>
+			<button title={title ? title : text}>{text}</button>
 		</Container>
 	);
-}
+};
+
+Button.propTypes = {
+	text: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+};
+
+Button.defaultProps = {
+	title: "",
+};
+
+export default Button;
